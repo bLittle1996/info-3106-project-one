@@ -11,6 +11,7 @@ return array(
     'Composer\\Autoload\\ComposerStaticInit31841d48007a0fd851b4f7d8243d180f' => $vendorDir . '/composer/autoload_static.php',
     'PagesController' => $baseDir . '/app/controllers/PagesController.php',
     'Question' => $baseDir . '/app/Question.php',
+    'QuestionType' => $baseDir . '/app/QuestionType.php',
     'Request' => $baseDir . '/app/Request.php',
     'Router' => $baseDir . '/app/Router.php',
     'Session' => $baseDir . '/app/Session.php',

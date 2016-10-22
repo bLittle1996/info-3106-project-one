@@ -54,7 +54,7 @@ class Router {
     // OR just use Laravel ;)
     switch(Request::uri()) {
       case 'survey':
-        return 0;
+        return Session::get('furthest_page_reached');
       case 'survey/1':
         return 1;
       case 'survey/2':

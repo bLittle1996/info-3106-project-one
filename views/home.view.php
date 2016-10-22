@@ -1,40 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Kensington Electronics | Survey Info</title>
-</head>
-<body>
-  <form action='/survey' method='POST'>
-    <input type="hidden" value='3243' name='test'>
-    <button type='submit'>submit</button>
-  </form>
+<?php include('includes/header.php') ?>
+<div id="container">
   <section id="banner">
     <h1>Kensington Electronics Customer Satisfaction Survey</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, qui.</p>
-    <a href="#" class="button-link">Begin</a>
+    <p>A way to allow you to help us help ourselves help you better. Simply answer a few basic questions in a few minutes.</p>
+    <a href="/survey" class="button-link">Begin</a>
+    <i class="fa fa-angle-double-down" aria-hidden="false"></i>
   </section>
 
-  <section id="survey-what">
-    <img class='info-image' />
-    <p class='info-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde modi consequuntur nobis at laboriosam facilis, laudantium cupiditate, a velit, itaque doloremque ducimus beatae, ex ea est. Natus iste praesentium, rem.</p>
+  <section id="survey-what" class='survey-info green'>
+    <i class="fa fa-question-circle-o" aria-hidden="false"></i>
+    <p class='info-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident facere quos magni beatae ratione deleniti, consequatur ipsam distinctio necessitatibus! Animi quas ex voluptatem, fugiat, saepe expedita magnam. Voluptate optio reprehenderit, nulla praesentium numquam architecto, corporis ab commodi beatae quaerat eius dolor eos pariatur possimus autem, quas nisi incidunt fugiat omnis illo. Modi autem maiores, impedit consectetur, error totam veritatis id voluptates officia pariatur vitae sapiente necessitatibus fugiat nisi tenetur.</p>
   </section>
 
-  <section id="survey-why">
-    <p class='info-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed ab a mollitia totam dolor dolorem molestiae perspiciatis cumque error libero, maiores optio accusantium incidunt, nam voluptatibus voluptatem nobis sunt quis rem enim odio fugit!</p>
-    <img class='info-image' />
+  <section id="survey-why" class='survey-info white'>
+    <p class='info-text'>Lorem ipsum dolor sit amet, optio hic minima ipsa delectus odio quidem, debitis ab! Ratione sint veritatis reiciendis qui similique neque pariatur repellat. Magni minima, these icons make no sense at all, excepturi perspiciatis et, unde earum illum cum perferendis quo atque iusto. Nisi dolorum rem culpa error architecto odit facere, placeat vitae, quasi eaque sint inventore cupiditate repudiandae doloremque libero. Culpa, eaque?</p>
+    <i class="fa fa-balance-scale" aria-hidden="false"></i>
   </section>
 
-  <section id="survey-how">
-    <img class='info-image' />
-    <p class='info-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam fugiat ea libero quo, optio iusto quos magnam, nostrum ratione mollitia asperiores quia illo blanditiis. Totam alias quasi possimus.
+  <section id="survey-how" class='survey-info yellow'>
+    <i class="fa fa-pie-chart" aria-hidden="false"></i>
+    <p class='info-text'>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati officiis iure, impedit reprehenderit sed assumenda soluta, nihil commodi similique magnam eveniet, ad aperiam aliquid facere reiciendis dolor velit, architecto culpa nemo perspiciatis aut natus? Libero tenetur, commodi omnis explicabo, dolorem veniam id impedit magni aliquam illo perferendis dicta, blanditiis eveniet nihil vero ab autem? Magni modi enim amet saepe, minus facilis, eveniet laudantium cupiditate sed pariatur quis cum iusto. Voluptates itaque reprehenderit corporis veniam illo reiciendis ex sunt necessitatibus quos assumenda est molestias, odio rem commodi aspernatur. Explicabo, ad in nulla corrupti labore cumque minima minus quisquam quia ullam! Aliquid.</p>
     </section>
 
     <section id="call-to-action">
       <h2>Let's get started, shall we?</h2>
-      <a href="#" class='button-link'>Begin</a>
+      <h6>Consistent colour schemes be damned!</h6>
+      <a href="/survey" class='button-link'>Begin</a>
     </section>
-  </body>
-  </html>
+  </div>
+  <?php include('includes/footer.php') ?>

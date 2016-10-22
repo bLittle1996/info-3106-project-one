@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Kensington Electronics Survey </title>
-  <link href='public/css/app.css' ref='stylesheet'>
-</head>
-<body>
-  <?php $survey->displaySurveyPage($serveyPage) ?>
-</body>
-</html>
+<?php include('includes/header.php') ?>
+<form class='survey' action="survey" method="POST">
+  <?php $survey->displaySurveyPage($pageNumber) ?>
+  <div class="buttons">
+    <a href="#" class="link-button">Last Page</a>
+    <button type='submit' class='button-button'>Next Page</button>
+  </div>
+</form>
+<?php include('includes/footer.php') ?>

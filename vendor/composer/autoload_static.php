@@ -12,6 +12,7 @@ class ComposerStaticInit31841d48007a0fd851b4f7d8243d180f
         'Composer\\Autoload\\ComposerStaticInit31841d48007a0fd851b4f7d8243d180f' => __DIR__ . '/..' . '/composer/autoload_static.php',
         'PagesController' => __DIR__ . '/../..' . '/app/controllers/PagesController.php',
         'Question' => __DIR__ . '/../..' . '/app/Question.php',
+        'QuestionType' => __DIR__ . '/../..' . '/app/QuestionType.php',
         'Request' => __DIR__ . '/../..' . '/app/Request.php',
         'Router' => __DIR__ . '/../..' . '/app/Router.php',
         'Session' => __DIR__ . '/../..' . '/app/Session.php',

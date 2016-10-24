@@ -26,7 +26,7 @@
           <td>How you purchased our products: </td><td><?= Session::get('answers')['howPurchased'] ?></td>
         </tr>
         <tr>
-          <td>What products you purchased:</td><td><?php foreach(Session::get('answers')['purchased'] as $item) { echo "{$item} "; } ?></td>
+          <td>What products you purchased:</td><td><?php foreach(Session::get('answers')['purchased'] as $item) { echo "{$item}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"; } ?></td>
         </tr>
         <tr>
           <tr><td><br></td></tr>
@@ -34,6 +34,11 @@
           <tr><td><br></td></tr>
         </tr>
         <?php
+          if(Session::get('answers')['satisfactionPhone']) {
+            echo "<tr>";
+            echo "<td>Purchased Phone</td><td>Satisfaction: " . Session::get('answers')["satisfactionPhone"] . " Would recommend? " . Session::get('answers')['recommendPhone'] . "</td>";
+            echo "</tr>";
+          }
           if(Session::get('answers')['satisfactionSmart_TV']) {
             echo "<tr>";
             echo "<td>Purchased Smart TV</td><td>Satisfaction: " . Session::get('answers')["satisfactionSmart_TV"] . " Would recommend? " . Session::get('answers')['recommendSmart_TV'] . "</td>";
@@ -42,11 +47,6 @@
           if(Session::get('answers')['satisfactionLaptop']) {
             echo "<tr>";
             echo "<td>Purchased Laptop</td><td>Satisfaction: " . Session::get('answers')["satisfactionLaptop"] . " Would recommend? " . Session::get('answers')['recommendLaptop'] . "</td>";
-            echo "</tr>";
-          }
-          if(Session::get('answers')['satisfactionPhone']) {
-            echo "<tr>";
-            echo "<td>Purchased Phone</td><td>Satisfaction: " . Session::get('answers')["satisfactionPhone"] . " Would recommend? " . Session::get('answers')['recommendPhone'] . "</td>";
             echo "</tr>";
           }
         ?>

@@ -144,6 +144,11 @@ table {
   box-shadow: 0 0 10px 1px rgba(0,0,0,.5);
 }
 
+.button-button:hover {
+  background-color: rgb(131, 188, 53);
+  cursor: pointer;
+}
+
 .button-wrapper {
   display: flex;
   justify-content: space-around;

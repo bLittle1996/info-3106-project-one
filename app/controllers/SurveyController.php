@@ -107,6 +107,7 @@ class SurveyController {
 
   public static function validatePageTwo($answers) {
     $valid = true;
+    $_SESSION['errors']['second_page'] = [];
     if(!$answers['howPurchased']) {
       Session::addError('second_page', 'howPurchased', 'This field is required!');
       $valid = false;
@@ -123,21 +124,21 @@ class SurveyController {
     $recommendations = array_map(function ($item) { return "recommend{$item}"; },Session::get('answers')['purchased']);
     $satisfaction = array_map(function ($item) { return "satisfaction{$item}"; },Session::get('answers')['purchased']);
     $valid = true;
+    $_SESSION['errors']['third_page'] = [];
 
     foreach($recommendations as $recommendation) {
-      if(!$_POST[str_replace(' ', '_', $recommendation)]) {
-        Session::addError('third_page', $recommendation, 'This field is required!');
+      if(!$answers[str_replace(' ', '_', $recommendation)]) {
+        Session::addError('third_page', str_replace(' ', '_', $recommendation), 'This field is required!');
         $valid = false;
       }
     }
 
     foreach($satisfaction as $satisfiable) {
-      if(!$_POST[str_replace(' ', '_', $satisfiable)]) {
-        Session::addError('third_page', $satisfiable, 'This field is required!');
+      if(!$answers[str_replace(' ', '_', $satisfiable)]) {
+        Session::addError('third_page', str_replace(' ', '_', $satisfiable), 'This field is required!');
         $valid = false;
       }
     }
-
 
     return $valid;
   }

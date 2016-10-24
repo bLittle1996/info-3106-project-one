@@ -1,6 +1,6 @@
 <?php
 /*
-  Like the Request class, this Session class exists as a wrapper around a superglobal so that our code looks cleaner and more readable
+  Like the Request class, this Session class exists as a wrapper around a superglobal so that our code looks cleaner (update: not anymore :) ) and more readable
 */
   class Session {
     public static function start() {
@@ -13,11 +13,12 @@
 
       if(!isset($_SESSION['answers'])) {
         self::set('answers', []); //instantiate to empty array for storage
+        //note we will put arrays of questions to seperate different page answers
       }
     }
 
-    public static function clear() {
-      $_SESSION = [];
+    public static function surveyAllowed() {
+      return self::get('allowed') ? true : false;
     }
 
     public static function get($property) {
@@ -32,6 +33,18 @@
     public static function setAnswer($property, $value) {
       $_SESSION['answers'][$property] = $value;
       return isset($_SESSION['answers'][$property]);
+    }
+
+    public static function has($property) {
+      return array_key_exists($property, $_SESSION);
+    }
+
+    public static function addError($page, $field, $message) {
+      $_SESSION['errors'][$page][$field] = $message;
+    }
+
+    public static function clearErrors($page) {
+      $_SESSION['errors'][$page] = [];
     }
 
     //ideally called for each page we go to

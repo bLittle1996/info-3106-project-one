@@ -35,12 +35,12 @@ class Router {
         ...explode('@', self::$routes[$requestType][$uri])
       );
     }
-    throw new Exception("<h1>404</h1> <h3>Not Found - Route Does Not Exist</h3>");
+    throw new Exception("<h1>404</h1> <h3>Not Found - Route {$uri} Does Not Exist</h3>");
   }
 
   protected static function callAction($controller, $action) {
     if(!method_exists($controller, $action)) {
-      throw new Exception("<h1>Uh oh,</h1> <h3>The {$controller} does not support contain the {$action} action.");
+      throw new Exception("<h1>Uh oh,</h1> <h3>The {$controller} does not support the {$action} action.");
     }
 
     return (new $controller)->$action();
@@ -54,7 +54,7 @@ class Router {
     // OR just use Laravel ;)
     switch(Request::uri()) {
       case 'survey':
-        return Session::get('furthest_page_reached');
+        return Session::get('furthest_page_reached') > 3 ? 3 : Session::get('furthest_page_reached');
       case 'survey/1':
         return 1;
       case 'survey/2':

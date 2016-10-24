@@ -29,6 +29,11 @@ body {
   text-shadow: 0 0 15px black;
 }
 
+#banner form {
+  height: 0;
+  width: 0;
+}
+
 #banner p {
   color: rgb(227, 228, 238);
   font-size: 1.3em;
@@ -100,4 +105,55 @@ body {
 #call-to-action h6 {
   font-weight: 400;
   margin: 0;
+}
+
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+table {
+  text-align: left !important;
+}
+
+.wrapper > h2 {
+  margin: default auto;
+}
+
+.responses table {
+  margin: 0 auto;
+}
+
+.wrapper .button-link {
+  display: inline-block;
+}
+
+.button-button {
+  margin-top: 2em;
+  background-color: #8dc63f;
+  border-radius: 2px;
+  padding: 0.8em 1.3em;
+  color: white;
+  font-family: 'Raleway';
+  outline: none;
+  border: none;
+  font-size: 1em;
+  font-weight: bold;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,.5);
+}
+
+.button-wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+.inputs {
+  margin-bottom: 1em;
+}
+
+.error {
+  color: red;
 }

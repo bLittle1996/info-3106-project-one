@@ -1,9 +1,17 @@
+<?php if(Session::getCurrentPage()) { //if they've been to a page we track, take them there. If not, send them where ever
+  header("Location: /" . Session::getCurrentPage());
+}
+?>
 <?php include('includes/header.php') ?>
 <div id="container">
   <section id="banner">
     <h1>Kensington Electronics Customer Satisfaction Survey</h1>
     <p>A way to allow you to help us help ourselves help you better. Simply answer a few basic questions in a few minutes.</p>
-    <a href="/survey" class="button-link">Begin</a>
+    <p>Click the button below to get started!</p>
+    <form action="/survey/allow" method="POST">
+      <button type='submit' class="button-button">Begin</button>
+      <input type='hidden' name='_session' value="<?= Session::getSessionId() ?>" />
+    <form>
     <i class="fa fa-angle-double-down" aria-hidden="false"></i>
   </section>
 
@@ -25,7 +33,10 @@
     <section id="call-to-action">
       <h2>Let's get started, shall we?</h2>
       <h6>Consistent colour schemes be damned!</h6>
-      <a href="/survey" class='button-link'>Begin</a>
+      <form action="/survey/allow" method="POST">
+        <button type='submit' class="button-button">Begin</button>
+        <input type='hidden' name='_session' value="<?= Session::getSessionId() ?>" />
+      <form>
     </section>
   </div>
   <?php include('includes/footer.php') ?>

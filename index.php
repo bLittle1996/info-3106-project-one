@@ -14,6 +14,7 @@ require 'app/bootstrap.php';
 Router::load('routes.php');
 Session::start();
 
+
 try {
   Router::direct(Request::uri(), Request::method());
 } catch (Exception $ex) {

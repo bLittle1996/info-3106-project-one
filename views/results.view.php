@@ -52,7 +52,7 @@
         ?>
       </table>
     </div>
-    <form action="/session/clear" method="POST">
+    <form action="<?= Request::root() ? '/' . Request::root() : '' ?>/session/clear" method="POST">
       <button class="button-button">Done (Clears Session)</button>
       <input type='hidden' name='_session' value="<?= Session::getSessionId() //for limited security ?>" />
     </form>

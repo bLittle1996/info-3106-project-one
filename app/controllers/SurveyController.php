@@ -2,12 +2,12 @@
 /* This controller handles user interaction with our survey */
 class SurveyController {
 
-
   public function getSurvey() {
+    $root = Request::root() ? '/' . Request::root() : '';
     $requestedPage = Router::surveyRouteInfo();
     $furthestPage = Session::get('furthest_page_reached');
     if($furthestPage == 4) {
-      header('Location: /survey/results');
+      header("Location: {$root}/survey/results");
     } else if($requestedPage <= $furthestPage) {
       require "views/survey{$requestedPage}.view.php";
     } else {
@@ -16,49 +16,53 @@ class SurveyController {
   }
 
   public function getResults() {
+    $root = Request::root() ? '/' . Request::root() : '';
     if(Session::get('furthest_page_reached') == 4) {
       require 'views/results.view.php';
     } else {
-      header("Location: /");
+      header("Location: {$root}/");
     }
   }
 
   public function allowSurvey() {
+    $root = Request::root() ? '/' . Request::root() : '';
     $sessId = $_POST['_session'];
     if($sessId == Session::getSessionId()) {
       Session::set('allowed', true);
-      header("Location: /survey/1");
+      header("Location: {$root}/survey/1");
     } else {
-      header("Location: /");
+      header("Location: {$root}/");
     }
   }
 
   public function clearSession() {
+    $root = Request::root() ? '/' . Request::root() : '';
     $sessId = $_POST['_session'];
     echo "{$sessId}, " . Session::getSessionId();
     if($sessId == Session::getSessionId()) {
       Session::clearSession();
     }
-    header("Location: /");
+    header("Location: {$root}/");
   }
 
   public function postPageOne() {
+    $root = Request::root() ? '/' . Request::root() : '';
     $_SESSION['errors']['first_page'] = [];
     if(self::validatePageOne($_POST)) {
-      echo "valid";
       foreach($_POST as $question => $answer) {
         Session::setAnswer($question, $answer);
       }
       if(Session::get('furthest_page_reached') < 2) {
         Session::set('furthest_page_reached', 2);
       }
-      header('Location: /survey/2');
+      header("Location: {$root}/survey/2");
     } else {
       require 'views/survey1.view.php';
     }
   }
 
   public function postPageTwo() {
+    $root = Request::root() ? '/' . Request::root() : '';
     if(self::validatePageTwo($_POST)) {
       foreach($_POST as $question => $answer) {
         Session::setAnswer($question, $answer);
@@ -66,13 +70,14 @@ class SurveyController {
       if(Session::get('furthest_page_reached') < 3) {
         Session::set('furthest_page_reached', 3);
       }
-      header('Location: /survey/3');
+      header("Location: {$root}/survey/3");
     } else {
       require 'views/survey2.view.php';
     }
   }
 
   public function postPageThree() {
+    $root = Request::root() ? '/' . Request::root() : '';
     if(self::validatePageThree($_POST)) {
       foreach($_POST as $question => $answer) {
         Session::setAnswer($question, $answer);
@@ -80,7 +85,7 @@ class SurveyController {
       if(Session::get('furthest_page_reached') < 4) {
         Session::set('furthest_page_reached', 4);
       }
-      header('Location: /survey/results');
+      header("Location: {$root}/survey/results");
     } else {
       require 'views/survey3.view.php';
     }

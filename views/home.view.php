@@ -1,5 +1,5 @@
 <?php if(Session::getCurrentPage()) { //if they've been to a page we track, take them there. If not, send them where ever
-  header("Location: /" . Session::getCurrentPage());
+  header("Location: " . (Request::root() ? '/' . Request::root() : '') . "/" . Session::getCurrentPage());
 }
 ?>
 <?php include('includes/header.php') ?>
@@ -8,7 +8,7 @@
     <h1>Kensington Electronics Customer Satisfaction Survey</h1>
     <p>A way to allow you to help us help ourselves help you better. Simply answer a few basic questions in a few minutes.</p>
     <p>Click the button below to get started!</p>
-    <form action="/survey/allow" method="POST">
+    <form action="<?= Request::root() ? '/' . Request::root() : '' ?>/survey/allow" method="POST">
       <button type='submit' class="button-button">Begin</button>
       <input type='hidden' name='_session' value="<?= Session::getSessionId() ?>" />
     <form>

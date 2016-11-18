@@ -1,5 +1,5 @@
 <?php include('includes/header.php') ?>
-<form class='survey' action="/survey/3" method="POST">
+<form class='survey' action="<?= Request::root() ? '/' . Request::root() : '' ?>/survey/3" method="POST">
   <?php Session::set('current_page', 'survey/3') ?>
   <div class="wrapper">
   <h2>Page Three</h2>

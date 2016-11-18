@@ -35,7 +35,7 @@ class Router {
         ...explode('@', self::$routes[$requestType][$uri])
       );
     }
-    throw new Exception("<h1>404</h1> <h3>Not Found - Route {$uri} Does Not Exist</h3>");
+    throw new Exception("<h1>404</h1> <h3>Not Found - {$requestType} Route {$uri} Does Not Exist</h3>");
   }
 
   protected static function callAction($controller, $action) {
@@ -53,13 +53,13 @@ class Router {
     //need to learn how to create wild card routes. i.e. router->get('survey/{pageNumber}', 'controller');
     // OR just use Laravel ;)
     switch(Request::uri()) {
-      case 'survey':
+      case (Request::root() ? Request::root() . '/' : '') . 'survey':
         return Session::get('furthest_page_reached') > 3 ? 3 : Session::get('furthest_page_reached');
-      case 'survey/1':
+      case (Request::root() ? Request::root() . '/' : '') . 'survey/1':
         return 1;
-      case 'survey/2':
+      case (Request::root() ? Request::root() . '/' : '') . 'survey/2':
         return 2;
-      case 'survey/3':
+      case (Request::root() ? Request::root() . '/' : '') . 'survey/3':
         return 3;
       default:
         return -1;
